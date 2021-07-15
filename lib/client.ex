@@ -54,7 +54,7 @@ defmodule Easypost.Client do
       end
 
       def create_order(order) do
-        unquote(Easypost.order()).create_order(conf(), order)
+        unquote(Easypost.Order).create_order(conf(), order)
       end
 
       def create_batch(shipments) do
