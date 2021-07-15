@@ -36,22 +36,22 @@ defmodule Easypost.Requester do
   defp parse_response(response) do
     case response do
       {:ok, {{_httpvs, 200, _status_phrase}, json_body}} ->
-        {:ok, Poison.decode!(json_body)}
+        {:ok, Jason.decode!(json_body)}
 
       {:ok, {{_httpvs, 201, _status_phrase}, json_body}} ->
-        {:ok, Poison.decode!(json_body)}
+        {:ok, Jason.decode!(json_body)}
 
       {:ok, {{_httpvs, 200, _status_phrase}, _headers, json_body}} ->
-        {:ok, Poison.decode!(json_body)}
+        {:ok, Jason.decode!(json_body)}
 
       {:ok, {{_httpvs, 201, _status_phrase}, _headers, json_body}} ->
-        {:ok, Poison.decode!(json_body)}
+        {:ok, Jason.decode!(json_body)}
 
       {:ok, {{_httpvs, status, _status_phrase}, json_body}} ->
-        {:error, status, Poison.decode!(json_body)["error"]}
+        {:error, status, Jason.decode!(json_body)["error"]}
 
       {:ok, {{_httpvs, status, _status_phrase}, _headers, json_body}} ->
-        {:error, status, Poison.decode!(json_body)["error"]}
+        {:error, status, Jason.decode!(json_body)["error"]}
 
       {:error, reason} ->
         {:error, :bad_fetch, %{"code" => "bad fetch", "message" => reason}}
