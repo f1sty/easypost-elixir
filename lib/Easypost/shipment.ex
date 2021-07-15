@@ -124,7 +124,7 @@ defmodule Easypost.Shipment do
            body
          ) do
       {:ok, shipment} ->
-        {:ok, shipment}
+        {:ok, Map.new(shipment)}
 
       {:error, _status, reason} ->
         {:error, struct(Easypost.Error, reason)}
