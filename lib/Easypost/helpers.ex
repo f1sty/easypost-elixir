@@ -29,14 +29,14 @@ defmodule Easypost.Helpers do
   end
 
   def cast({k, v}) when is_map(v) do
-    {String.to_atom(k), put_struct(v)}
+    {String.to_atom(k), v}
   end
 
   def cast({k, v}) when is_list(v) do
     val =
       v
       |> Enum.map(fn
-        x when is_map(x) -> put_struct(x)
+        x when is_map(x) -> x
         x -> cast(x)
       end)
 
