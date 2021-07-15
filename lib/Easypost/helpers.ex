@@ -17,7 +17,7 @@ defmodule Easypost.Helpers do
 
   def process(acc, v) when is_map(v) do
     v
-    |> Enum.map(fn {k, v} -> process(acc <> "[" <> k <> "]", v) end)
+    |> Enum.map(fn {k, v} -> process(acc <> "[" <> to_string(k) <> "]", v) end)
   end
 
   def process(acc, v) when is_list(v) do
