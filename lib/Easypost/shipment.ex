@@ -127,7 +127,7 @@ defmodule Easypost.Shipment do
         {:ok, Map.new(shipment)}
 
       {:error, _status, reason} ->
-        {:error, struct(Easypost.Error, reason)}
+        {:error, Map.new(reason)}
     end
   end
 
@@ -145,10 +145,10 @@ defmodule Easypost.Shipment do
            body
          ) do
       {:ok, refund} ->
-        {:ok, struct(Easypost.Refund, refund)}
+        {:ok, Map.new(refund)}
 
       {:error, _status, reason} ->
-        {:error, struct(Easypost.Error, reason)}
+        {:error, Map.new(reason)}
     end
   end
 
@@ -166,10 +166,10 @@ defmodule Easypost.Shipment do
            body
          ) do
       {:ok, shipment} ->
-        {:ok, struct(Easypost.Shipment, shipment)}
+        {:ok, Map.new(shipment)}
 
       {:error, _status, reason} ->
-        {:error, struct(Easypost.Error, reason)}
+        {:error, Map.new(reason)}
     end
   end
 
@@ -187,10 +187,10 @@ defmodule Easypost.Shipment do
            body
          ) do
       {:ok, shipment} ->
-        {:ok, struct(Easypost.Shipment, shipment)}
+        {:ok, Map.new(shipment)}
 
       {:error, _status, reason} ->
-        {:error, struct(Easypost.Error, reason)}
+        {:error, Map.new(reason)}
     end
   end
 end

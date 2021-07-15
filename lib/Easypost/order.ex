@@ -47,10 +47,10 @@ defmodule Easypost.Order do
            body
          ) do
       {:ok, order} ->
-        {:ok, struct(Easypost.Order, order)}
+        {:ok, Map.new(order)}
 
       {:error, _status, reason} ->
-        {:error, struct(Easypost.Error, reason)}
+        {:error, Map.new(reason)}
     end
   end
 
@@ -68,10 +68,10 @@ defmodule Easypost.Order do
   #          body
   #        ) do
   #     {:ok, refund} ->
-  #       {:ok, struct(Easypost.Refund, refund)}
+  #       {:ok, Map.new(refund)}
 
   #     {:error, _status, reason} ->
-  #       {:error, struct(Easypost.Error, reason)}
+  #       {:error, Map.new(reason)}
   #   end
   # end
 
@@ -89,10 +89,10 @@ defmodule Easypost.Order do
   #          body
   #        ) do
   #     {:ok, order} ->
-  #       {:ok, struct(Easypost.order(), order)}
+  #       {:ok, Map.new(order)}
 
   #     {:error, _status, reason} ->
-  #       {:error, struct(Easypost.Error, reason)}
+  #       {:error, Map.new(reason)}
   #   end
   # end
 
@@ -110,10 +110,10 @@ defmodule Easypost.Order do
   #          body
   #        ) do
   #     {:ok, order} ->
-  #       {:ok, struct(Easypost.order(), order)}
+  #       {:ok, Map.new(order)}
 
   #     {:error, _status, reason} ->
-  #       {:error, struct(Easypost.Error, reason)}
+  #       {:error, Map.new(reason)}
   #   end
   # end
 end
