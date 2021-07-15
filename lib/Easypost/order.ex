@@ -47,7 +47,7 @@ defmodule Easypost.Order do
            body
          ) do
       {:ok, order} ->
-        {:ok, struct(Easypost.order(), order)}
+        {:ok, struct(Easypost.Order, order)}
 
       {:error, _status, reason} ->
         {:error, struct(Easypost.Error, reason)}
